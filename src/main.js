@@ -43,7 +43,7 @@ new Vue({
   template: '<App/>',
   data: {
     themeColor: 'green darken-4',
-    userEmail: 'smoketest',
-    userPassword: 'InfoBeans123'
+    userEmail: 'ashish1.sarode12@infobeans.com',
+    userPassword: 'ashish123'
   }
 })

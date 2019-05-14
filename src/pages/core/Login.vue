@@ -54,8 +54,8 @@ export default {
   data() {
     return {
       loading: false,
-      userEmail: 'smoketest',
-      password: 'InfoBeans123',
+      userEmail: 'ashish1.sarode12@infobeans.com',
+      password: 'ashish123',
       hidePassword: true,
       error: false,
       showResult: false,
@@ -77,14 +77,22 @@ export default {
 
         return;
       }
-      if (vm.userEmail === vm.$root.userEmail && vm.password === vm.$root.userPassword) {
-        vm.$router.push({ name: 'Dashboard' });
+
+      var params = {
+        email: vm.userEmail,
+        password: vm.password,
       }
-      else {
-        vm.error = true;
-        vm.result = "Email or Password is incorrect.";
-        vm.showResult = true;
-      }
+       vm.axios.post('http://192.168.2.33:8080/api/v1/users/login', params).then((response) => {
+         console.log(response.data);
+            console.log('Everything is awesome.');
+           vm.$router.push({ name: 'Dashboard' });
+
+        }).catch((error) => {
+            console.warn('Not good man :(');
+            vm.error = true;
+            vm.result = "Email or Password is incorrect.";
+            vm.showResult = true;
+        })
     }
   }
 }

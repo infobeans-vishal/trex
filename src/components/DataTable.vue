@@ -1,4 +1,9 @@
 <template>
+<div>
+  <v-toolbar flat color="white">
+      <v-toolbar-title><h4>Outstanding Candidate Challenges / EDC / CC Appeals</h4></v-toolbar-title>
+      <v-spacer></v-spacer>
+   </v-toolbar>
   <v-data-table
     class="table"
     :headers="headers"
@@ -15,10 +20,25 @@
       <td class="text-xs-left">{{ props.item.email }}</td>
       <td class="text-xs-left">{{ props.item.phone }}</td>
       <td class="text-xs-left">{{ props.item.company.name }}</td>
-      <td class="text-xs-left">{{ props.item.website }}</td>
-      <!-- <td class="text-xs-left">{{ props.item.address.city }}</td> -->
     </template>
   </v-data-table>
+
+  <v-toolbar flat color="white">
+      <v-toolbar-title><h4>Outstanding Grade Reports</h4></v-toolbar-title>
+      <v-spacer></v-spacer>
+   </v-toolbar>
+   <v-data-table
+    class="table"
+    :headers="grade_report"
+    :items="users"
+    :rows-per-page-items="[10, 25]">
+    <template slot="items" slot-scope="props">
+      <td class="text-xs-left">{{ props.item.email }}</td>
+      <td class="text-xs-left">{{ props.item.phone }}</td>
+      <td class="text-xs-left">{{ props.item.company.name }}</td>
+    </template>
+  </v-data-table>
+</div>
 </template>
 
 <script>
@@ -43,41 +63,56 @@ export default {
           sortable: false
         },
         {
-          text: 'Name',
+          text: 'Candidate Name',
           value: 'Name',
           align: 'left',
           sortable: true
         },
         {
-          text: 'User Name',
+          text: 'Exam ID/State',
           value: 'Username',
           align: 'left',
           sortable: true
         },
         {
-          text: 'Email',
+          text: 'Program Manager',
           value: 'Email',
           align: 'left',
           sortable: true
         },
         {
-          text: 'Phone',
+          text: 'Appeal Type',
           value: 'Phone',
           align: 'left',
           sortable: true
         },
         {
-          text: 'Company',
+          text: 'Due Date',
           value: 'Company',
           align: 'left',
           sortable: true
         },
+      ],
+      grade_report: [
         {
-          text: 'Website',
-          value: 'Website',
+          text: 'Exam ID/State',
+          value: 'Username',
           align: 'left',
           sortable: true
-        }
+        },
+        {
+          text: 'Program Manager',
+          value: 'Email',
+          align: 'left',
+          sortable: true
+        },
+        {
+          text: 'Appeal Type',
+          value: 'Phone',
+          align: 'left',
+          sortable: true
+        },
+        
       ]
     }
   },
@@ -103,10 +138,13 @@ export default {
 
 <style>
   .table {
-    border-radius: 3px;
+    border-radius: 1px;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.21);
     background-color: transparent;
+  }
+  .column {
+    background-color: #2E7D32 !important; 
   }
 </style>

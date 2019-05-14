@@ -8,8 +8,7 @@
       </router-link>
     </v-toolbar>
     <v-list >
-      <v-list-tile v-for="(menu, index) in menus"  v-bind:data="todoItem"
-           v-bind:key="menu.title">
+      <v-list-tile v-for="(menu, index) in menus" v-bind:key="menu.title">
         <v-list-tile-action >
           <v-icon>{{menu.icon}}</v-icon>
         </v-list-tile-action >

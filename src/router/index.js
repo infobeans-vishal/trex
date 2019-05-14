@@ -117,7 +117,8 @@ export default new Router({
       component: Search,
       meta: {
         breadcrumb: [
-          { name: 'Certifications', href: 'Search' },
+          { name: 'Home', href: 'Dashboard' },
+          { name: 'Certifications' },
           { name: 'Search' }
         ]
       }

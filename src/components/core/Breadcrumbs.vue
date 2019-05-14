@@ -1,8 +1,8 @@
 <template>
 <v-container grid-list-md text-xs-center>
-    <v-layout row wrap>
+    <v-layout row wrap >
       <v-flex xs12>
-        <v-card class="">
+        <v-card class="header-links" color="grey lighten-4">
           <v-breadcrumbs :items="items" class="breadcrumbs" divider="/">
             <template slot="item" slot-scope="props">
               <router-link :to="{ name: props.item.href }" class="link">{{ props.item.name }}</router-link>
@@ -11,7 +11,6 @@
         </v-card>
   </v-flex>
     </v-layout>
-  
   </v-container>
 </template>
 
@@ -50,12 +49,18 @@ export default {
 <style>
   .breadcrumbs .link {
     text-decoration: none;
-    color: #333;
-    font: bold 14px Sans-Serif;
+    color:green;
+    font:  14px Sans-Serif;
     letter-spacing: -1px;
     white-space: nowrap;
     display: inline-block;
     position: relative;
+  }
+
+  .header-links {
+    /* border: 1px solid #333 !important; */
+    border-radius: 5px !important;
+    background: red;
   }
 
 </style>
