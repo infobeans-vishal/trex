@@ -1,5 +1,60 @@
 <template>
   <v-container fluid grid-list-xl>
+
+<v-layout align-center>
+   <v-flex>
+      <v-window
+         v-model="window"
+         class="elevation-1"
+         vertical
+         style="border:1px solid gray"
+         >
+         <v-window-item>
+            <v-toolbar color="green darken-2 white--text" height="50px">
+               <h4>Search Certification</h4>
+            </v-toolbar>
+            <v-container>
+               <v-layout row wrap>
+                  <v-flex xs12 sm4>
+                     <v-text-field
+                        label="CST Key"
+                        outline
+                        ></v-text-field>
+                  </v-flex>
+                  <v-flex xs12 sm4>
+                     <v-text-field
+                        label="First/Middle Name"
+                        outline
+                        ></v-text-field>
+                  </v-flex>
+                  <v-flex xs12 sm4>
+                     <v-text-field
+                        label="Last Name"
+                        outline
+                        ></v-text-field>
+                  </v-flex>
+                  <v-flex xs12 sm4>
+                     <v-text-field
+                        label="Email Id"
+                        outline
+                        ></v-text-field>
+                  </v-flex>
+                  <v-flex xs12 sm4>
+                     <v-text-field
+                        label="Record Number"
+                        outline
+                        ></v-text-field>
+                  </v-flex>
+                  <v-flex xs12>
+                    <v-btn color="blue darken-2" small>Clear</v-btn>
+                  <v-btn color="blue darken-2" small>Search</v-btn>
+                  </v-flex>
+               </v-layout>
+            </v-container>
+         </v-window-item>
+      </v-window>
+   </v-flex>
+  </v-layout>
     <v-layout row wrap>
       <!-- Statistics -->
       <v-flex d-flex lg4 sm6 xs12>

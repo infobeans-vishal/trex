@@ -7,8 +7,8 @@
             <v-card class="elevation-1 pa-3">
               <v-card-text>
                 <div class="layout column align-center">
-                  <img src="@/assets/trex-logo.jpg" alt="Vue Material Admin" >
-                  <h1 class="flex my-4 ">Sign Into T-Rex  </h1>
+                  <img src="../../assets/trex-logo.jpg" alt="Vue Material Admin" >
+                  <h1 class="flex my-4 ">Welcome To T-Rex  </h1>
                 </div>
                 <v-form>
                   <v-text-field

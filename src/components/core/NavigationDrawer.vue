@@ -17,14 +17,14 @@
     </v-list>
     <v-list>
      <v-list-group :prepend-icon="item.icon" v-for="(item, index) in items" v-bind:key="item.title">
-       <v-list-tile slot="activator">
-          <v-list-tile-title class="item-title">{{item.title}}</v-list-tile-title>
+       <v-list-tile slot="activator" @click="changeRoute(item.title, index)">
+          <v-list-tile-title class="item-title" >{{item.title}}</v-list-tile-title>
         </v-list-tile>
-        <v-list-tile :prepend-icon="subItem.icon" sub-group no-action v-for="subItem in item.items" :key="subItem.title">
+        <v-list-tile :prepend-icon="subItem.icon" sub-group no-action v-for="(subItem, subIndex) in item.items" :key="subItem.title" active-class="red--text">
           <v-list-tile-action>
             <v-icon>{{subItem.icon}}</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title @click="changeRoute(subItem.title, index)">{{subItem.title}}</v-list-tile-title>
+          <v-list-tile-title :class="[{'active': selectedIndex === subIndex}, 'item-title' ]" @click="changeRoute(subItem.title, subIndex)">{{subItem.title}}</v-list-tile-title>
         </v-list-tile>
          </v-list-group>
     <v-list-group
@@ -449,6 +449,7 @@ export default {
 
   .active {
     font-weight: bold;
+		background: lightgreen;
   }
 	.v-list__tile__title {
 		cursor: pointer;

@@ -1,6 +1,6 @@
 <template>
-<v-container grid-list-md text-xs-center>
-    <v-layout row wrap >
+<v-container >
+    <v-layout row wrap mb-0>
       <v-flex xs12>
         <v-card class="header-links" color="grey lighten-4">
           <v-breadcrumbs :items="items" class="breadcrumbs" divider="/">

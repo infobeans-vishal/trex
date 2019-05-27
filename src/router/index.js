@@ -11,6 +11,7 @@ import Calendar from '../pages/Calendar.vue';
 import Login from '../pages/core/Login.vue';
 import Error from '../pages/core/Error.vue';
 import Search from '../pages/Search.vue';
+import Eligibilities from '../pages/Eligibilities'
 
 
 
@@ -120,6 +121,18 @@ export default new Router({
           { name: 'Home', href: 'Dashboard' },
           { name: 'Certifications' },
           { name: 'Search' }
+        ]
+      }
+    },
+    {
+      path: '/eligibilities',
+      name: 'Eligibilities',
+      component: Eligibilities,
+      meta: {
+        breadcrumb: [
+          { name: 'Home', href: 'Dashboard' },
+          { name: 'Eligibilities' },
+          { name: ' Search Eligibility' }
         ]
       }
     }
