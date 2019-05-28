@@ -50,6 +50,8 @@
 </template>
 
 <script>
+// import { store } from '../../store/store';
+
 export default {
   data() {
     return {
@@ -67,6 +69,7 @@ export default {
   },
 
   methods: {
+
     login() {
       const vm = this;
 
@@ -82,17 +85,39 @@ export default {
         email: vm.userEmail,
         password: vm.password,
       }
-       vm.axios.post('http://192.168.2.33:8080/api/v1/users/login', params).then((response) => {
-         console.log(response.data);
-            console.log('Everything is awesome.');
-           vm.$router.push({ name: 'Dashboard' });
 
-        }).catch((error) => {
-            console.warn('Not good man :(');
-            vm.error = true;
-            vm.result = "Email or Password is incorrect.";
-            vm.showResult = true;
-        })
+      var email = vm.userEmail
+      var password = vm.password
+
+      // this.$store.dispatch('login', { email, password })
+      //  .then((response) =>
+      //  this.$router.push('/'))
+      //  .catch(err => console.log(err))
+
+      this.$store.dispatch('login',{ email, password}).then((response) =>{
+        console.log('Everything is awesome.');
+        vm.$router.push({ name: 'Dashboard' });
+      }).catch((error) => {
+        console.warn('Not good man :(');
+        vm.error = true;
+        vm.result = "Email or Password is incorrect.";
+        vm.showResult = true;
+
+      })
+
+
+
+      //  vm.axios.post('http://192.168.2.33:8080/api/v1/users/login', params).then((response) => {
+      //    console.log(response.data);
+      //       console.log('Everything is awesome.');
+      //      vm.$router.push({ name: 'Dashboard' });
+
+      //   }).catch((error) => {
+      //       console.warn('Not good man :(');
+      //       vm.error = true;
+      //       vm.result = "Email or Password is incorrect.";
+      //       vm.showResult = true;
+      //   })
     }
   }
 }

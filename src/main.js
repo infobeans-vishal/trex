@@ -24,6 +24,12 @@ import { setupComponents } from './config/setup-components';
 
 import swatches from 'vue-swatches';
 import "vue-swatches/dist/vue-swatches.min.css"
+import Vuex from 'vuex'
+import 'es6-promise/auto'
+import store from './store/store'
+
+
+Vue.use(Vuex)
 
 Vue.use(VueChartkick, { adapter: Chart });
 Vue.component('full-calendar', fullCalendar);
@@ -35,10 +41,16 @@ Vue.use(Vuetify);
 
 Vue.config.productionTip = false
 
+const token = localStorage.getItem('token')
+if (token) {
+  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>',
   data: {
