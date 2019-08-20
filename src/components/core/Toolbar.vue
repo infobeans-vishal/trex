@@ -178,13 +178,13 @@
       </v-card>
     </v-menu>
 
-    <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
+    <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition" >
       <v-btn icon large flat slot="activator" :ripple="false">
         <v-avatar size="42px">
           <img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&clotheType=CollarSweater&clotheColor=Black&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light"/>
         </v-avatar>
       </v-btn>
-      <v-list>
+      <v-list dense>
         <v-list-tile
           v-for="(item,index) in items"
           :key="index"

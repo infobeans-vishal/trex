@@ -32,12 +32,12 @@ export default new Vuex.Store({
     login({commit}, user) {
       return new Promise((resolve, reject) => {
           commit('auth_request')
-          axios({url: 'http://192.168.2.33:8080/api/v1/users/login', data: user, method: 'POST' })
+          axios({url: 'http://192.168.2.52:8080/api/v1/users/login', data: user, method: 'POST' })
           .then(resp => {
             const token = resp.data.data.tokens
             const user = resp.data.data.user
-            localStorage.setItem('token', token)
-            axios.defaults.headers.common['Authorization'] = token
+            localStorage.setItem('token', token.token)
+            axios.defaults.headers.common['Authorization'] = token.token
             commit('auth_success', { token, user })
             resolve(resp)
           })
@@ -56,6 +56,27 @@ export default new Vuex.Store({
         resolve()
       })
     },
+    eligibilities({commit}, params) {
+      console.log('called');
+      return new Promise((resolve, reject) => {
+        commit('logout')
+        localStorage.removeItem('token')
+        delete axios.defaults.headers.common['Authorization']
+        resolve()
+      })
+    },
+    exams({commit}) {
+      return new Promise((resolve, reject) => {
+        axios({url: 'http://192.168.2.52:8080/api/v1/exams', method: 'POST' })
+          .then(resp => {
+            resolve(resp)
+          })
+          .catch(err => {
+            reject(err)
+          })
+
+      })
+    }
   },
   getters : {
     isLoggedIn: state => !!state.token,

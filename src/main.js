@@ -42,8 +42,10 @@ Vue.use(Vuetify);
 Vue.config.productionTip = false
 
 const token = localStorage.getItem('token')
+
+console.log(token);
 if (token) {
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+  Vue.prototype.$http.defaults.headers.common['Authorization'] = token.token
 }
 
 /* eslint-disable no-new */
@@ -56,6 +58,7 @@ new Vue({
   data: {
     themeColor: 'green darken-4',
     userEmail: 'ashish1.sarode12@infobeans.com',
-    userPassword: 'ashish123'
+    userPassword: 'ashish123',
+    baseUrl: 'http://192.168.2.33:8080/api/v1'
   }
 })

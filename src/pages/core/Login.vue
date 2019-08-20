@@ -33,7 +33,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" @click="login" :loading="loading">Login</v-btn>
+                <v-btn small outlined color="primary" @click="login" :loading="loading">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -89,16 +89,12 @@ export default {
       var email = vm.userEmail
       var password = vm.password
 
-      // this.$store.dispatch('login', { email, password })
-      //  .then((response) =>
-      //  this.$router.push('/'))
-      //  .catch(err => console.log(err))
-
+// vm.$router.push({ name: 'Dashboard' });
       this.$store.dispatch('login',{ email, password}).then((response) =>{
         console.log('Everything is awesome.');
         vm.$router.push({ name: 'Dashboard' });
       }).catch((error) => {
-        console.warn('Not good man :(');
+        console.warn('Not ola man :(');
         vm.error = true;
         vm.result = "Email or Password is incorrect.";
         vm.showResult = true;

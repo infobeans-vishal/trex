@@ -14,6 +14,7 @@ import Search from '../pages/Search.vue';
 import Eligibilities from '../pages/Eligibilities'
 import Letter from '../pages/Letter.vue'
 import Roster from '../pages/Roster'
+import ListExam from '../pages/Exam/Exams.vue'
 
 
 
@@ -149,8 +150,7 @@ export default new Router({
           { name: ' Search Score Roster' }
         ]
       }
-    }
-    ,
+    },
     {
       path: '/list-letters',
       name: 'List Letters',
@@ -159,6 +159,18 @@ export default new Router({
         breadcrumb: [
           { name: 'Home', href: 'Dashboard' },
           { name: 'Letter' }
+        ]
+      }
+    },
+    {
+      path: '/list-exams',
+      name: 'List Exams',
+      component: ListExam,
+      meta: {
+        breadcrumb: [
+          { name: 'Home', href: 'Dashboard' },
+          { name: 'Exams' },
+          { name: 'List' }
         ]
       }
     }

@@ -16,22 +16,27 @@
                   <v-flex sm3>
                      <v-text-field
                         label="Candidate ID"
+                        outline
+                        v-model="candidate_id"
                         ></v-text-field>
                   </v-flex>
                   <v-flex sm3>
                      <v-text-field
                         label="First/Middle Name"
                         outline
+                        v-model="first_name"
                         ></v-text-field>
                   </v-flex>
                   <v-flex sm3>
                      <v-text-field
+                     v-model="last_name"
                         label="Last Name"
                         outline
                         ></v-text-field>
                   </v-flex>
                   <v-flex sm3>
                      <v-select
+                        v-model="exam"
                         :items="items"
                         label="Exam"
                         outline
@@ -41,6 +46,7 @@
                <v-layout row wrap mt-0>
                   <v-flex sm3 >
                      <v-select
+                        v-model="status"
                         :items="status"
                         label="Eligibility Status"
                         outline
@@ -48,6 +54,7 @@
                   </v-flex>
                   <v-flex sm3>
                      <v-select
+                        v-model="jurisdiction"
                         :items="items"
                         label="Select Jurisdictions"
                         outline
@@ -84,7 +91,32 @@
       length: 3,
       window: 0,
       items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
-      status: ['Used', 'Vaild', 'Expired','All']
-    })
+      status: ['Used', 'Vaild', 'Expired','All'],
+      candidate_id: '',
+      jurisdiction: '',
+      first_name: '',
+      last_name: '',
+      exam: '',
+
+    }),
+    methods: {
+      getEligibility: function () {
+         var params = {
+         }
+        this.$store.dispatch('eligibilities',params).then((response) => {
+        console.log('Everything is awesome.');
+        vm.$router.push({ name: 'Dashboard' });
+      }).catch((error) => {
+        console.warn('Not ola man :(');
+        vm.error = true;
+        vm.result = "Email or Password is incorrect.";
+        vm.showResult = true;
+
+      })
+      }
+    },
+    mounted(){
+       this.getEligibility()
+   }
   }
 </script>
